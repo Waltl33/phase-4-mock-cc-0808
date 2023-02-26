@@ -20,14 +20,14 @@ end
 private
 
 def camper_params
-    params.permit(:name, :age, :camper_id)
+    params.permit(:name, :age)
 end
 
 def camper_not_found
     render json: {error: "Camper not found"}, status: :not_found
 end
 
-def camper_invalid
-    render json: {error: "validation errors"}, status: 422
+def camper_invalid(errors)
+    render json: {error: errors.message}, status: 422
 end
 end
